@@ -464,25 +464,43 @@
       </div>
     </section>
 
-    <!-- SLIDE 9: RSVP -->
-    <section class="section">
-      <div class="card">
-        <h2>Konfirmasi Kehadiran</h2>
-        <form onsubmit="alert('Terima kasih atas konfirmasi Anda!'); return false;">
-          <input type="text" placeholder="Nama Lengkap" required>
-          <select required>
-            <option value="">Status Kehadiran</option>
-            <option value="Hadir">Hadir Akad & Resepsi</option>
-            <option value="Hadir Akad">Hadir Akad Saja</option>
-            <option value="Hadir Resepsi">Hadir Resepsi Saja</option>
-            <option value="Tidak Hadir">Tidak Dapat Hadir</option>
-          </select>
-          <input type="number" placeholder="Jumlah Tamu Hadir" min="1" max="5">
-          <button type="submit" class="btn-action">Kirim RSVP</button>
-        </form>
-      </div>
-    </section>
+  <!-- SLIDE 9: RSVP -->
+<section class="section">
+  <div class="card">
+    <h2>Konfirmasi Kehadiran</h2>
+    <form id="rsvp-form" onsubmit="sendRSVPToWA(event)">
+      <input type="text" id="rsvp-nama" placeholder="Nama Lengkap" required>
+      <select id="rsvp-status" required>
+        <option value="">Status Kehadiran</option>
+        <option value="Hadir Akad & Resepsi">Hadir Akad & Resepsi</option>
+        <option value="Hadir Akad Saja">Hadir Akad Saja</option>
+        <option value="Hadir Resepsi Saja">Hadir Resepsi Saja</option>
+        <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
+      </select>
+      <input type="number" id="rsvp-jumlah" placeholder="Jumlah Tamu Hadir" min="1" max="5" value="1">
+      <button type="submit" class="btn-action">Kirim RSVP via WhatsApp</button>
+    </form>
+  </div>
+</section>
+<script>
+          function sendRSVPToWA(event) {
+  event.preventDefault();
+  
+  // Ganti dengan nomor WhatsApp kamu (gunakan format 62, contoh: 628123456789)
+  const nomorWA = "6287704569720"; 
 
+  const nama = document.getElementById('rsvp-nama').value;
+  const status = document.getElementById('rsvp-status').value;
+  const jumlah = document.getElementById('rsvp-jumlah').value;
+
+  const pesan = `Halo, saya ingin konfirmasi kehadiran RSVP Undangan:%0A%0A` +
+                `*Nama:* ${encodeURIComponent(nama)}%0A` +
+                `*Status:* ${encodeURIComponent(status)}%0A` +
+                `*Jumlah Tamu:* ${encodeURIComponent(jumlah)} orang`;
+
+  window.open(`https://wa.me/${nomorWA}?text=${pesan}`, '_blank');
+}
+        </script >
     <!-- SLIDE 10: UCAPAN & DOA RESTU -->
     <section class="section">
       <div class="card">
