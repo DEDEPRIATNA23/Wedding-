@@ -3,1121 +3,338 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Digital Dede & Nina</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>The Wedding of Dede & Nina</title>
   <style>
-    :root {
-      --bg-color: #faf8f5;
-      --card-bg: rgba(255, 255, 255, 0.95);
-      --accent-color: #8b7d6b;
-      --accent-dark: #6e6151;
-      --text-main: #2c2a29;
-      --text-muted: #66605b;
-      --font-serif: 'Cormorant Garamond', serif;
-      --font-sans: 'Montserrat', sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
       padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      font-family: var(--font-sans);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #050505;
+      color: #fff;
       overflow-x: hidden;
-      width: 100%;
-      min-height: 100vh;
       scroll-behavior: smooth;
     }
-
-    #main-wrapper {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px 0;
-    }
-
-    .section {
-      min-height: 100vh;
-      width: 100vw;
+    section {
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 20px;
       position: relative;
-    }
-
-    /* BACKGROUND SLIDER UNTUK COVER */
-    .slider-container {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 1;
-    }
-
-    .slide {
-      position: absolute;
-      width: 100%; height: 100%;
-      opacity: 0;
-      transition: opacity 1.8s ease-in-out;
       background-size: cover;
       background-position: center;
-    }
-
-    .slide.active { opacity: 1; }
-
-    .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.42);
-      z-index: 2;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      color: #ffffff;
-      padding: 0 20px;
-    }
-
-    .hero-content h1 {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 15px 0;
-      line-height: 1.2;
-      letter-spacing: 1px;
-    }
-
-    .subtitle {
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-
-    /* CARD SYSTEM */
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(139, 125, 107, 0.2);
-      padding: 30px 22px;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-      max-width: 420px;
-      width: 100%;
-      margin: auto;
-    }
-
-    .card h2 {
-      font-family: var(--font-serif);
-      color: var(--accent-dark);
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: var(--accent-color);
-      margin: 15px auto;
-    }
-
-    /* COUPLE PROFILE SECTION */
-    .profile-box {
-      margin: 15px 0;
-    }
-
-    .profile-name {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .parents {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    /* EVENT DETAIL SECTION */
-    .event-item {
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 12px;
-      border-left: 3px solid var(--accent-color);
-      text-align: left;
-    }
-
-    .event-title {
-      font-weight: 600;
-      color: var(--accent-dark);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .event-date {
-      font-size: 0.85rem;
-      color: var(--text-main);
-      margin: 4px 0;
-    }
-
-    /* LOVE STORY TIMELINE */
-    .timeline {
-      text-align: left;
-      border-left: 2px solid var(--accent-color);
-      padding-left: 15px;
-      margin-left: 10px;
-    }
-
-    .timeline-item {
-      margin-bottom: 15px;
-      position: relative;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -21px;
-      top: 4px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent-color);
-    }
-
-    .timeline-year {
-      font-weight: 600;
-      font-size: 0.8rem;
-      color: var(--accent-dark);
-    }
-
-    .timeline-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* GALLERY GRID */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    /* GIFT & ACCOUNTS */
-    .bank-card {
-      background: #f4f1ea;
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 10px;
-    }
-
-    .bank-name {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--accent-dark);
-    }
-
-    .account-num {
-      font-family: monospace;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      margin: 4px 0;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.82rem;
-    }
-
-    .btn-action {
-      display: inline-block;
-      width: 100%;
-      padding: 10px;
-      background-color: var(--accent-color);
-      color: #fff;
-      text-decoration: none;
-      border: none;
-      border-radius: 20px;
-      font-size: 0.82rem;
-      cursor: pointer;
-      font-weight: 500;
-    }
-
-    /* FLOATING CONTROLS */
-    .controls-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .btn-float {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background-color: var(--accent-color);
-      color: #fff;
-      border: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-    }
-
-    .spin {
-      animation: spin 4s linear infinite;
-    }
-
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- BACKGROUND MUSIC -->
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- CONTROLS MELAYANG -->
-  <div class="controls-container">
-    <button class="btn-float" id="music-btn" onclick="toggleMusic()">🎵</button>
-    <button class="btn-float" id="scroll-btn" onclick="toggleAutoScroll()">▶️</button>
-  </div>
-
-  <!-- MAIN WRAPPER SLIDES -->
-  <div id="main-wrapper">
-
-    <!-- SLIDE 1: MAIN COVER -->
-    <section class="section" id="slide-0">
-      <div class="slider-container">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80');"></div>
-      </div>
-      <div class="overlay"></div>
-      <div class="hero-content">
-        <p class="subtitle">The Wedding Of</p>
-        <h1>Dede Priatna<br>&<br>Nina Nurlela</h1>
-        <p style="letter-spacing: 2px;">24 OKTOBER 2026</p>
-      </div>
-    </section>
-
-    <!-- SLIDE 2: SALAM & QUOTE -->
-    <section class="section" id="slide-1">
-      <div class="card">
-        <h2>Salam & Doa</h2>
-        <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
-          "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
-        </p>
-        <div class="divider"></div>
-        <p style="font-size: 0.8rem; font-style: italic; color: var(--accent-dark);">
-          (QS. Ar-Rum: 21)
-        </p>
-      </div>
-    </section>
-
-    <!-- SLIDE 3: MEMPELAI PRIA & WANITA -->
-    <section class="section" id="slide-2">
-      <div class="card">
-        <h2>Kedua Mempelai</h2>
-        <div class="profile-box">
-          <div class="profile-name">Dede Priatna</div>
-          <div class="parents">Putra dari Bapak Dudung & Ibu DASINI</div>
-        </div>
-        <div class="divider"></div>
-        <div class="profile-box">
-          <div class="profile-name">Nina Nurlela</div>
-          <div class="parents">Putri dari Bapak Atifin & Ibu Aan</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 4: CERITA CINTA (OUR STORY) -->
-    <section class="section" id="slide-3">
-      <div class="card">
-        <h2>Kisah Cinta Kami</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2021 - Pertama Bertemu</div>
-            <div class="timeline-desc">Awal mula kami dipertemukan dalam sebuah kegiatan kepemimpinan.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2024 - Menjalin Hubungan</div>
-            <div class="timeline-desc">Memutuskan untuk berkomitmen dan saling mengenal lebih dalam.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2026 - Pernikahan</div>
-            <div class="timeline-desc">Mengikat janji suci dan merencanakan masa depan bersama.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 5: AKAD NIKAH -->
-    <section class="section" id="slide-4">
-      <div class="card">
-        <h2>Akad Nikah</h2>
-        <div class="event-item">
-          <div class="event-title">Waktu & Tempat</div>
-          <div class="event-date"><strong>Sabtu, 24 Oktober 2026</strong></div>
-          <div class="event-date">Pukul 08.00 - 10.00 WIB</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">
-            Sidamulih<br>Kec. Pamarican, Kabupaten Ciamis, Jawa Barat
-          </div>
-        </div>
-        <div style="text-align: center; margin: 15px 0;">
-          <a href="https://www.google.com/maps/search/?api=1&query=Sidamulih+Pamarican+Ciamis" 
-             target="_top" 
-             rel="noopener noreferrer"
-             style="display: inline-block; background-color: #4285F4; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-            📍 Petunjuk Arah (Navigasi Maps)
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 6: RESEPSI PERNIKAHAN -->
-    <section class="section" id="slide-5">
-      <div class="card">
-        <h2>Resepsi Pernikahan</h2>
-        <div class="event-item">
-          <div class="event-title">Waktu & Tempat</div>
-          <div class="event-date"><strong>Sabtu, 24 Oktober 2026</strong></div>
-          <div class="event-date">Pukul 11.00 - 14.00 WIB</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">
-            Sidamulih<br>Kec. Pamarican, Kabupaten Ciamis, Jawa Barat
-          </div>
-        </div>
-        <div style="text-align: center; margin: 15px 0;">
-          <a href="https://www.google.com/maps/search/?api=1&query=Sidamulih+Pamarican+Ciamis" 
-             target="_top" 
-             rel="noopener noreferrer"
-             style="display: inline-block; background-color: #4285F4; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-            📍 Petunjuk Arah (Navigasi Maps)
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 7: GALERI MOMEN -->
-    <section class="section" id="slide-6">
-      <div class="card">
-        <h2>Galeri Momen</h2>
-        <div class="gallery-grid">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Galeri 1">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Galeri 2">
-          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=400&q=80" alt="Galeri 3">
-          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=400&q=80" alt="Galeri 4">
-          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=400&q=80" alt="Galeri 5">
-          <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=400&q=80" alt="Galeri 6">
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 8: DIGITAL GIFT -->
-    <section class="section" id="slide-7">
-      <div class="card">
-        <h2>Tanda Kasih (Gift)</h2>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
-          Doa restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi hadiah, dapat melalui:
-        </p>
-        <div class="bank-card">
-          <div class="bank-name">BANK BCA</div>
-          <div class="account-num">1234 5678 90</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted);">a.n. Dede Priatna</div>
-        </div>
-        <div class="bank-card">
-          <div class="bank-name">BANK MANDIRI</div>
-          <div class="account-num">0987 6543 21</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted);">a.n. Nina Nurlela</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 9: RSVP -->
-    <section class="section" id="slide-8">
-      <div class="card">
-        <h2>Konfirmasi Kehadiran</h2>
-        <form id="rsvp-form" onsubmit="sendRSVPToWA(event)">
-          <input type="text" id="rsvp-nama" placeholder="Nama Lengkap" required>
-          <select id="rsvp-status" required>
-            <option value="">Status Kehadiran</option>
-            <option value="Hadir Akad & Resepsi">Hadir Akad & Resepsi</option>
-            <option value="Hadir Akad Saja">Hadir Akad Saja</option>
-            <option value="Hadir Resepsi Saja">Hadir Resepsi Saja</option>
-            <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
-          </select>
-          <input type="number" id="rsvp-jumlah" placeholder="Jumlah Tamu Hadir" min="1" max="5" value="1">
-          <button type="submit" class="btn-action">Kirim RSVP via WhatsApp</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- SLIDE 10: UCAPAN & DOA RESTU -->
-    <section class="section" id="slide-9">
-      <div class="card">
-        <h2>Ucapan & Doa Restu</h2>
-        <form onsubmit="alert('Terima kasih atas doa & ucapannya!'); return false;">
-          <input type="text" placeholder="Nama Anda" required>
-          <textarea rows="3" placeholder="Tuliskan doa & ucapan..." required></textarea>
-          <button type="submit" class="btn-action">Kirim Doa</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- SLIDE 11: PENUTUP -->
-    <section class="section" id="slide-10">
-      <div class="card">
-        <h2>Terima Kasih</h2>
-        <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
-          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
-        </p>
-        <div class="divider"></div>
-        <p style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: var(--accent-dark);">
-          Kami Yang Berbahagia
-        </p>
-        <p style="font-size: 0.9rem; margin-top: 5px;">Keluarga Besar Bpk. Dudung & Bpk. Atifin</p>
-      </div>
-    </section>
-
-  </div>
-
-  <script>
-    // 1. CAROUSEL FOTO SLIDE 1
-    const slides = document.querySelectorAll('.slide');
-    let currentImg = 0;
-    setInterval(() => {
-      slides[currentImg].classList.remove('active');
-      currentImg = (currentImg + 1) % slides.length;
-      slides[currentImg].classList.add('active');
-    }, 3500);
-
-    // 2. MUSIK
-    const music = document.getElementById('bg-music');
-    const musicBtn = document.getElementById('music-btn');
-    let isPlaying = false;
-
-    function toggleMusic() {
-      if (isPlaying) {
-        music.pause();
-        musicBtn.classList.remove('spin');
-      } else {
-        music.play();
-        musicBtn.classList.add('spin');
-      }
-      isPlaying = !isPlaying;
-    }
-
-    document.body.addEventListener('click', () => {
-      if (!isPlaying) toggleMusic();
-    }, { once: true });
-
-    // 3. ENGINE AUTO-SCROLL & MANUAL SCROLL
-    const totalSlides = 11;
-    let currentSlide = 0;
-    let autoScrollInterval = null;
-    const scrollBtn = document.getElementById('scroll-btn');
-
-    function toggleAutoScroll() {
-      if (autoScrollInterval) {
-        clearInterval(autoScrollInterval);
-        autoScrollInterval = null;
-        scrollBtn.textContent = '▶️';
-      } else {
-        scrollBtn.textContent = '⏸️';
-        autoScrollInterval = setInterval(() => {
-          currentSlide = (currentSlide + 1) % totalSlides;
-          const targetElement = document.getElementById(`slide-${currentSlide}`);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 4000);
-      }
-    }
-
-    // 4. WHATSAPP RSVP HANDLER
-    function sendRSVPToWA(event) {
-      event.preventDefault();
-      
-      const nomorWA = "6287704569720";
-      const nama = document.getElementById('rsvp-nama').value;
-      const status = document.getElementById('rsvp-status').value;
-      const jumlah = document.getElementById('rsvp-jumlah').value;
-
-      const pesan = `Halo, saya ingin konfirmasi kehadiran RSVP Undangan:%0A%0A` +
-                    `*Nama:* ${encodeURIComponent(nama)}%0A` +
-                    `*Status:* ${encodeURIComponent(status)}%0A` +
-                    `*Jumlah Tamu:* ${encodeURIComponent(jumlah)} orang`;
-
-      window.open(`https://wa.me/${nomorWA}?text=${pesan}`, '_blank');
-    }
-  </script>
-</body>
-          </html><!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Digital Dede & Nina</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #faf8f5;
-      --card-bg: rgba(255, 255, 255, 0.95);
-      --accent-color: #8b7d6b;
-      --accent-dark: #6e6151;
-      --text-main: #2c2a29;
-      --text-muted: #66605b;
-      --font-serif: 'Cormorant Garamond', serif;
-      --font-sans: 'Montserrat', sans-serif;
-    }
-
-    * {
+      padding: 20px;
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      overflow-x: hidden;
-      width: 100%;
-      min-height: 100vh;
-      scroll-behavior: smooth;
-    }
-
-    #main-wrapper {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px 0;
-    }
-
-    .section {
-      min-height: 100vh;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      position: relative;
-    }
-
-    /* BACKGROUND SLIDER UNTUK COVER */
-    .slider-container {
+    section::after {
+      content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.85));
       z-index: 1;
     }
-
-    .slide {
-      position: absolute;
-      width: 100%; height: 100%;
-      opacity: 0;
-      transition: opacity 1.8s ease-in-out;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .slide.active { opacity: 1; }
-
-    .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.42);
+    section > * {
       z-index: 2;
     }
-
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      color: #ffffff;
-      padding: 0 20px;
+    
+    .couple-container {
+      margin: 10px 0;
     }
-
-    .hero-content h1 {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 15px 0;
-      line-height: 1.2;
-      letter-spacing: 1px;
-    }
-
-    .subtitle {
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-
-    /* CARD SYSTEM */
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(139, 125, 107, 0.2);
-      padding: 30px 22px;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-      max-width: 420px;
-      width: 100%;
-      margin: auto;
-    }
-
-    .card h2 {
-      font-family: var(--font-serif);
-      color: var(--accent-dark);
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: var(--accent-color);
-      margin: 15px auto;
-    }
-
-    /* COUPLE PROFILE SECTION */
-    .profile-box {
-      margin: 15px 0;
-    }
-
-    .profile-name {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .parents {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    /* EVENT DETAIL SECTION */
-    .event-item {
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 12px;
-      border-left: 3px solid var(--accent-color);
-      text-align: left;
-    }
-
-    .event-title {
-      font-weight: 600;
-      color: var(--accent-dark);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .event-date {
-      font-size: 0.85rem;
-      color: var(--text-main);
+    .couple-name {
+      font-family: 'Georgia', serif;
+      font-size: 2.1rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+      color: #f3e5ab;
       margin: 4px 0;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.9);
     }
-
-    /* LOVE STORY TIMELINE */
-    .timeline {
-      text-align: left;
-      border-left: 2px solid var(--accent-color);
-      padding-left: 15px;
-      margin-left: 10px;
-    }
-
-    .timeline-item {
-      margin-bottom: 15px;
-      position: relative;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -21px;
-      top: 4px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent-color);
-    }
-
-    .timeline-year {
-      font-weight: 600;
-      font-size: 0.8rem;
-      color: var(--accent-dark);
-    }
-
-    .timeline-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* GALLERY GRID */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    /* GIFT & ACCOUNTS */
-    .bank-card {
-      background: #f4f1ea;
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 10px;
-    }
-
-    .bank-name {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--accent-dark);
-    }
-
-    .account-num {
-      font-family: monospace;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      margin: 4px 0;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.82rem;
-    }
-
-    .btn-action {
-      display: inline-block;
-      width: 100%;
-      padding: 10px;
-      background-color: var(--accent-color);
+    .couple-divider {
+      font-family: 'Georgia', serif;
+      font-size: 1.6rem;
+      font-style: italic;
       color: #fff;
-      text-decoration: none;
-      border: none;
-      border-radius: 20px;
-      font-size: 0.82rem;
-      cursor: pointer;
-      font-weight: 500;
+      margin: 2px 0;
+      opacity: 0.9;
     }
 
-    /* FLOATING CONTROLS */
-    .controls-container {
+    h2 {
+      font-family: 'Georgia', serif;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #f3e5ab;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+    p {
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+
+    .info-box, .rsvp-form {
+      background: rgba(20, 20, 20, 0.7);
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      backdrop-filter: blur(8px);
+      width: 100%;
+      max-width: 330px;
+      text-align: center;
+      box-sizing: border-box;
+      margin-bottom: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    }
+    .profile-photo {
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #c5a059;
+      margin: 0 auto 8px auto;
+      display: block;
+      box-shadow:  0 4px 15px rgba(0,0,0,0.8);
+      background-color: #333;
+    }
+    .gallery-photo {
+      width: 100%;
+      height: 140px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      margin-top: 6px;
+      background-color: #333;
+    }
+
+    .rsvp-form {
+      text-align: left;
+    }
+    .rsvp-form input, .rsvp-form select {
+      width: 100%;
+      padding: 7px;
+      margin-top: 3px;
+      margin-bottom: 6px;
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-family: inherit;
+      font-size: 0.8rem;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+    }
+
+    #music-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      z-index: 99;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .btn-float {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background-color: var(--accent-color);
-      color: #fff;
+      z-index: 999;
+      background: linear-gradient(135deg, #c5a059, #e6ca87);
       border: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      color: #111;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 18px;
       cursor: pointer;
+      box-shadow: 0 4px 15px rgba(197, 160, 89, 0.5);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
     }
-
     .spin {
-      animation: spin 4s linear infinite;
+      animation: rotation 3s linear infinite;
+    }
+    @keyframes rotation {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
+    .btn-action {
+      background: linear-gradient(135deg, #c5a059, #e6ca87);
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      padding: 8px;
+      width: 100%;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .btn-wa {
+      background: linear-gradient(135deg, #25d366, #1ebe5d);
+      color: #fff;
+    }
+    .rek-box {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px;
+      border-radius: 6px;
+      margin-top: 6px;
+      border: 1px dashed #c5a059;
     }
   </style>
 </head>
 <body>
 
-  <!-- BACKGROUND MUSIC -->
   <audio id="bg-music" loop>
     <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- CONTROLS MELAYANG -->
-  <div class="controls-container">
-    <button class="btn-float" id="music-btn" onclick="toggleMusic()">🎵</button>
-    <button class="btn-float" id="scroll-btn" onclick="toggleAutoScroll()">▶️</button>
-  </div>
+  <button id="music-btn" onclick="toggleMusic()">🎵</button>
 
-  <!-- MAIN WRAPPER SLIDES -->
-  <div id="main-wrapper">
+  <!-- SLIDE 1: COVER (Foto Nina) -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80');">
+    <!-- Menggunakan SVG Placeholder aman anti-gagal, silakan ganti atribut src jika sudah punya link hosting gambar yang valid -->
+    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" class="profile-photo" alt="Nina">
+    <p style="letter-spacing: 4px; font-size: 0.75rem; opacity: 0.9; text-transform: uppercase;">The Wedding Of</p>
+    <div class="couple-container">
+      <div class="couple-name">Dede Priatna</div>
+      <div class="couple-divider">&</div>
+      <div class="couple-name">Nina Nurlela</div>
+    </div>
+    <p style="margin-top: 4px; letter-spacing: 2px; color: #f3e5ab; font-weight: 500;">Sabtu, 24 Oktober 2026</p>
+    <p style="font-size: 0.7rem; font-style: italic; opacity: 0.8; margin-top: 10px; background: rgba(0,0,0,0.4); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">Ketuk layar untuk mulai musik</p>
+  </section>
 
-    <!-- SLIDE 1: MAIN COVER -->
-    <section class="section" id="slide-0">
-      <div class="slider-container">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80');"></div>
+  <!-- SLIDE 2: PEMBUKA -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80');">
+    <h2>Maha Suci Allah</h2>
+    <div class="info-box">
+      <p style="font-size: 0.8rem; font-style: italic; color: #f9f3d9;">
+        "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu merasa tenteram kepada-Nya..."
+      </p>
+      <p style="font-size: 0.75rem; font-weight: bold; margin-top: 6px; color: #f3e5ab;">(QS. Ar-Rum: 21)</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: MEMPELAI PRIA (Foto Dede) -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80');">
+    <h2>Mempelai Pria</h2>
+    <div class="info-box">
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80" class="profile-photo" alt="Dede">
+      <p style="font-size: 1.1rem; font-weight: bold; color: #f3e5ab; margin-bottom: 2px; font-family: Georgia, serif;">Dede Priatna</p>
+      <p style="font-size: 0.78rem; margin: 0; opacity: 0.9;">Putra tercinta dari<br><strong>Bpk. Dudung & Ibu Dasini</strong></p>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: MEMPELAI WANITA (Foto Nina) -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80');">
+    <h2>Mempelai Wanita</h2>
+    <div class="info-box">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" class="profile-photo" alt="Nina">
+      <p style="font-size: 1.1rem; font-weight: bold; color: #f3e5ab; margin-bottom: 2px; font-family: Georgia, serif;">Nina Nurlela</p>
+      <p style="font-size: 0.78rem; margin: 0; opacity: 0.9;">Putri tercinta dari<br><strong>Bpk. Arifin & Ibu Aan Lasmanah</strong></p>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: WAKTU -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80');">
+    <h2>Waktu Acara</h2>
+    <div class="info-box">
+      <p style="color: #f3e5ab; font-weight: bold;">Akad Nikah & Resepsi</p>
+      <p style="margin-top: 5px; font-size: 0.8rem;">📅 Sabtu, 24 Oktober 2026<br>⏰ Pukul 08.00 WIB s.d. Selesai</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: LOKASI -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80');">
+    <h2>Lokasi Acara</h2>
+    <div class="info-box">
+      <p style="color: #f3e5ab; font-weight: bold;">📍 Sidamulih</p>
+      <p style="font-size: 0.8rem;">Kec. Pamarican, Kabupaten Ciamis, Jawa Barat</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: MAPS -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80');">
+    <h2>Peta Lokasi</h2>
+    <div class="info-box">
+      <p style="font-size: 0.8rem; margin-bottom: 8px;">Tekan tombol di bawah untuk membuka petunjuk arah via Google Maps.</p>
+      <a href="https://maps.app.goo.gl/34q9wJzTq7Z22h279" target="_blank" class="btn-action" style="padding:7px 10px;">📍 Buka Google Maps</a>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: COUNTDOWN -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80');">
+    <h2>Menuju Hari Bahagia</h2>
+    <div class="info-box">
+      <p style="font-size: 0.8rem; margin-bottom: 6px;">Waktu Menuju 24 Oktober 2026:</p>
+      <p id="countdown" style="font-size: 0.95rem; font-weight: bold; color: #f3e5ab; letter-spacing: 1px;">Menghitung...</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: GALERI 1 -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80');">
+    <h2>Galeri Momen (1)</h2>
+    <div class="info-box" style="padding: 10px;">
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" class="gallery-photo" alt="Galeri Dede">
+      <p style="font-size: 0.75rem; color: #f3e5ab; margin-top: 6px; font-style: italic;">Dede Priatna</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: GALERI 2 -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80');">
+    <h2>Galeri Momen (2)</h2>
+    <div class="info-box" style="padding: 10px;">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" class="gallery-photo" alt="Galeri Nina">
+      <p style="font-size: 0.75rem; color: #f3e5ab; margin-top: 6px; font-style: italic;">Nina Nurlela</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 11: KIRIM HADIAH -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80');">
+    <h2>Kirim Hadiah</h2>
+    <div class="info-box">
+      <p style="font-size: 0.78rem; margin-bottom: 6px;">Doa restu Anda adalah karunia terindah. Namun jika ingin mengirimkan tanda kasih, silakan melalui:</p>
+      <div class="rek-box">
+        <p style="margin: 2px 0; font-size: 0.75rem; color: #f3e5ab; font-weight: bold;">BCA</p>
+        <p style="margin: 2px 0; font-size: 0.85rem; font-family: monospace;">1234567890</p>
+        <p style="margin: 2px 0; font-size: 0.75rem; opacity: 0.9;">a.n. Dede Priatna</p>
       </div>
-      <div class="overlay"></div>
-      <div class="hero-content">
-        <p class="subtitle">The Wedding Of</p>
-        <h1>Dede Priatna<br>&<br>Nina Nurlela</h1>
-        <p style="letter-spacing: 2px;">24 OKTOBER 2026</p>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SLIDE 2: SALAM & QUOTE -->
-    <section class="section" id="slide-1">
-      <div class="card">
-        <h2>Salam & Doa</h2>
-        <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
-          "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
-        </p>
-        <div class="divider"></div>
-        <p style="font-size: 0.8rem; font-style: italic; color: var(--accent-dark);">
-          (QS. Ar-Rum: 21)
-        </p>
-      </div>
-    </section>
+  <!-- SLIDE 12: RSVP WHATSAPP -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80');">
+    <h2>RSVP Kehadiran</h2>
+    <div class="rsvp-form">
+      <label style="font-size: 0.75rem; color: #f3e5ab;">Nama Lengkap:</label>
+      <input type="text" id="nama-rsvp" placeholder="Masukkan nama...">
+      
+      <label style="font-size: 0.75rem; color: #f3e5ab;">Kehadiran:</label>
+      <select id="status-rsvp">
+        <option value="Hadir">Hadir</option>
+        <option value="Berhalangan">Berhalangan Hadir</option>
+      </select>
 
-    <!-- SLIDE 3: MEMPELAI PRIA & WANITA -->
-    <section class="section" id="slide-2">
-      <div class="card">
-        <h2>Kedua Mempelai</h2>
-        <div class="profile-box">
-          <div class="profile-name">Dede Priatna</div>
-          <div class="parents">Putra dari Bapak Dudung & Ibu DASINI</div>
-        </div>
-        <div class="divider"></div>
-        <div class="profile-box">
-          <div class="profile-name">Nina Nurlela</div>
-          <div class="parents">Putri dari Bapak Atifin & Ibu Aan</div>
-        </div>
-      </div>
-    </section>
+      <label style="font-size: 0.75rem; color: #f3e5ab;">Jumlah Tamu:</label>
+      <input type="number" id="jumlah-rsvp" value="1" min="1" max="5">
 
-    <!-- SLIDE 4: CERITA CINTA (OUR STORY) -->
-    <section class="section" id="slide-3">
-      <div class="card">
-        <h2>Kisah Cinta Kami</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2021 - Pertama Bertemu</div>
-            <div class="timeline-desc">Awal mula kami dipertemukan dalam sebuah kegiatan kepemimpinan.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2024 - Menjalin Hubungan</div>
-            <div class="timeline-desc">Memutuskan untuk berkomitmen dan saling mengenal lebih dalam.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2026 - Pernikahan</div>
-            <div class="timeline-desc">Mengikat janji suci dan merencanakan masa depan bersama.</div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <button class="btn-action btn-wa" onclick="kirimWhatsApp()" style="margin-top: 4px;">Kirim RSVP via WhatsApp</button>
+    </div>
+  </section>
 
-    <!-- SLIDE 5: AKAD NIKAH -->
-    <section class="section" id="slide-4">
-      <div class="card">
-        <h2>Akad Nikah</h2>
-        <div class="event-item">
-          <div class="event-title">Waktu & Tempat</div>
-          <div class="event-date"><strong>Sabtu, 24 Oktober 2026</strong></div>
-          <div class="event-date">Pukul 08.00 - 10.00 WIB</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">
-            Sidamulih<br>Kec. Pamarican, Kabupaten Ciamis, Jawa Barat
-          </div>
-        </div>
-        <div style="text-align: center; margin: 15px 0;">
-          <a href="https://www.google.com/maps/search/?api=1&query=Sidamulih+Pamarican+Ciamis" 
-             target="_top" 
-             rel="noopener noreferrer"
-             style="display: inline-block; background-color: #4285F4; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-            📍 Petunjuk Arah (Navigasi Maps)
-          </a>
-        </div>
+  <!-- SLIDE 13: PENUTUP -->
+  <section style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80');">
+    <h2>Terima Kasih</h2>
+    <div class="info-box">
+      <p style="font-size: 0.8rem; line-height: 1.5; margin-bottom: 8px;">
+        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+      </p>
+      <p style="font-size: 0.78rem; font-style: italic; color: #f3e5ab; margin: 6px 0;">
+        "Wassalamu'alaikum Warahmatullahi Wabarakatuh"
+      </p>
+      <div style="margin-top: 6px;">
+        <p style="font-size: 0.8rem; font-weight: bold; margin: 0; color: #f3e5ab;">Kami yang berbahagia,</p>
+        <p style="font-size: 0.9rem; margin: 2px 0; font-family: Georgia, serif;">Dede & Nina</p>
       </div>
-    </section>
-
-    <!-- SLIDE 6: RESEPSI PERNIKAHAN -->
-    <section class="section" id="slide-5">
-      <div class="card">
-        <h2>Resepsi Pernikahan</h2>
-        <div class="event-item">
-          <div class="event-title">Waktu & Tempat</div>
-          <div class="event-date"><strong>Sabtu, 24 Oktober 2026</strong></div>
-          <div class="event-date">Pukul 11.00 - 14.00 WIB</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">
-            Sidamulih<br>Kec. Pamarican, Kabupaten Ciamis, Jawa Barat
-          </div>
-        </div>
-        <div style="text-align: center; margin: 15px 0;">
-          <a href="https://www.google.com/maps/search/?api=1&query=Sidamulih+Pamarican+Ciamis" 
-             target="_top" 
-             rel="noopener noreferrer"
-             style="display: inline-block; background-color: #4285F4; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-            📍 Petunjuk Arah (Navigasi Maps)
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 7: GALERI MOMEN -->
-    <section class="section" id="slide-6">
-      <div class="card">
-        <h2>Galeri Momen</h2>
-        <div class="gallery-grid">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Galeri 1">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Galeri 2">
-          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=400&q=80" alt="Galeri 3">
-          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=400&q=80" alt="Galeri 4">
-          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=400&q=80" alt="Galeri 5">
-          <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=400&q=80" alt="Galeri 6">
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 8: DIGITAL GIFT -->
-    <section class="section" id="slide-7">
-      <div class="card">
-        <h2>Tanda Kasih (Gift)</h2>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
-          Doa restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi hadiah, dapat melalui:
-        </p>
-        <div class="bank-card">
-          <div class="bank-name">BANK BCA</div>
-          <div class="account-num">1234 5678 90</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted);">a.n. Dede Priatna</div>
-        </div>
-        <div class="bank-card">
-          <div class="bank-name">BANK MANDIRI</div>
-          <div class="account-num">0987 6543 21</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted);">a.n. Nina Nurlela</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 9: RSVP -->
-    <section class="section" id="slide-8">
-      <div class="card">
-        <h2>Konfirmasi Kehadiran</h2>
-        <form id="rsvp-form" onsubmit="sendRSVPToWA(event)">
-          <input type="text" id="rsvp-nama" placeholder="Nama Lengkap" required>
-          <select id="rsvp-status" required>
-            <option value="">Status Kehadiran</option>
-            <option value="Hadir Akad & Resepsi">Hadir Akad & Resepsi</option>
-            <option value="Hadir Akad Saja">Hadir Akad Saja</option>
-            <option value="Hadir Resepsi Saja">Hadir Resepsi Saja</option>
-            <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
-          </select>
-          <input type="number" id="rsvp-jumlah" placeholder="Jumlah Tamu Hadir" min="1" max="5" value="1">
-          <button type="submit" class="btn-action">Kirim RSVP via WhatsApp</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- SLIDE 10: UCAPAN & DOA RESTU -->
-    <section class="section" id="slide-9">
-      <div class="card">
-        <h2>Ucapan & Doa Restu</h2>
-        <form onsubmit="alert('Terima kasih atas doa & ucapannya!'); return false;">
-          <input type="text" placeholder="Nama Anda" required>
-          <textarea rows="3" placeholder="Tuliskan doa & ucapan..." required></textarea>
-          <button type="submit" class="btn-action">Kirim Doa</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- SLIDE 11: PENUTUP -->
-    <section class="section" id="slide-10">
-      <div class="card">
-        <h2>Terima Kasih</h2>
-        <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
-          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
-        </p>
-        <div class="divider"></div>
-        <p style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: var(--accent-dark);">
-          Kami Yang Berbahagia
-        </p>
-        <p style="font-size: 0.9rem; margin-top: 5px;">Keluarga Besar Bpk. Dudung & Bpk. Atifin</p>
-      </div>
-    </section>
-
-  </div>
+    </div>
+  </section>
 
   <script>
-    // 1. CAROUSEL FOTO SLIDE 1
-    const slides = document.querySelectorAll('.slide');
-    let currentImg = 0;
-    setInterval(() => {
-      slides[currentImg].classList.remove('active');
-      currentImg = (currentImg + 1) % slides.length;
-      slides[currentImg].classList.add('active');
-    }, 3500);
-
-    // 2. MUSIK
     const music = document.getElementById('bg-music');
     const musicBtn = document.getElementById('music-btn');
     let isPlaying = false;
@@ -1126,1012 +343,73 @@
       if (isPlaying) {
         music.pause();
         musicBtn.classList.remove('spin');
+        musicBtn.innerHTML = "🎵";
       } else {
-        music.play();
+        music.play().catch(e => console.log(e));
         musicBtn.classList.add('spin');
+        musicBtn.innerHTML = "⏸";
       }
       isPlaying = !isPlaying;
     }
 
     document.body.addEventListener('click', () => {
-      if (!isPlaying) toggleMusic();
+      if (!isPlaying) {
+        music.play().then(() => {
+          musicBtn.classList.add('spin');
+          musicBtn.innerHTML = "⏸";
+          isPlaying = true;
+        }).catch(err => console.log(err));
+      }
     }, { once: true });
 
-    // 3. ENGINE AUTO-SCROLL & MANUAL SCROLL
-    const totalSlides = 11;
-    let currentSlide = 0;
-    let autoScrollInterval = null;
-    const scrollBtn = document.getElementById('scroll-btn');
-
-    function toggleAutoScroll() {
-      if (autoScrollInterval) {
-        clearInterval(autoScrollInterval);
-        autoScrollInterval = null;
-        scrollBtn.textContent = '▶️';
-      } else {
-        scrollBtn.textContent = '⏸️';
-        autoScrollInterval = setInterval(() => {
-          currentSlide = (currentSlide + 1) % totalSlides;
-          const targetElement = document.getElementById(`slide-${currentSlide}`);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 4000);
-      }
-    }
-
-    // 4. WHATSAPP RSVP HANDLER
-    function sendRSVPToWA(event) {
-      event.preventDefault();
+    function kirimWhatsApp() {
+      const nama = document.getElementById('nama-rsvp').value;
+      const status = document.getElementById('status-rsvp').value;
+      const jumlah = document.getElementById('jumlah-rsvp').value;
       
-      const nomorWA = "6287704569720";
-      const nama = document.getElementById('rsvp-nama').value;
-      const status = document.getElementById('rsvp-status').value;
-      const jumlah = document.getElementById('rsvp-jumlah').value;
+      if (!nama) {
+        alert('Mohon isi nama Anda terlebih dahulu!');
+        return;
+      }
 
-      const pesan = `Halo, saya ingin konfirmasi kehadiran RSVP Undangan:%0A%0A` +
-                    `*Nama:* ${encodeURIComponent(nama)}%0A` +
-                    `*Status:* ${encodeURIComponent(status)}%0A` +
-                    `*Jumlah Tamu:* ${encodeURIComponent(jumlah)} orang`;
-
-      window.open(`https://wa.me/${nomorWA}?text=${pesan}`, '_blank');
-    }
-  </script>
-</body>
-            </html>
-    .card h2 {
-      font-family: var(--font-serif);
-      color: var(--accent-dark);
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-      font-weight: 700;
+      const nomorAdmin = "6281234567890";
+      const pesan = `Halo, saya ${nama}.\n\nKonfirmasi Kehadiran: *${status}*\nJumlah Tamu: *${jumlah} orang*`;
+      const url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
     }
 
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: var(--accent-color);
-      margin: 15px auto;
-    }
-
-    /* COUPLE PROFILE SECTION */
-    .profile-box {
-      margin: 15px 0;
-    }
-
-    .profile-name {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .parents {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    /* EVENT DETAIL SECTION */
-    .event-item {
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 12px;
-      border-left: 3px solid var(--accent-color);
-      text-align: left;
-    }
-
-    .event-title {
-      font-weight: 600;
-      color: var(--accent-dark);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .event-date {
-      font-size: 0.85rem;
-      color: var(--text-main);
-      margin: 4px 0;
-    }
-
-    /* LOVE STORY TIMELINE */
-    .timeline {
-      text-align: left;
-      border-left: 2px solid var(--accent-color);
-      padding-left: 15px;
-      margin-left: 10px;
-    }
-
-    .timeline-item {
-      margin-bottom: 15px;
-      position: relative;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -21px;
-      top: 4px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent-color);
-    }
-
-    .timeline-year {
-      font-weight: 600;
-      font-size: 0.8rem;
-      color: var(--accent-dark);
-    }
-
-    .timeline-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* GALLERY GRID */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    /* GIFT & ACCOUNTS */
-    .bank-card {
-      background: #f4f1ea;
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 10px;
-    }
-
-    .bank-name {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--accent-dark);
-    }
-
-    .account-num {
-      font-family: monospace;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      margin: 4px 0;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.82rem;
-    }
-
-    .btn-action {
-      display: inline-block;
-      width: 100%;
-      padding: 10px;
-      background-color: var(--accent-color);
-      color: #fff;
-      text-decoration: none;
-      border: none;
-      border-radius: 20px;
-      font-size: 0.82rem;
-      cursor: pointer;
-      font-weight: 500;
-    }
-
-    /* FLOATING CONTROLS */
-    .controls-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .btn-float {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background-color: var(--accent-color);
-      color: #fff;
-      border: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-    }
-
-    .spin {
-      animation: spin 4s linear infinite;
-    }
-
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- BACKGROUND MUSIC -->
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- CONTROLS MELAYANG -->
-  <div class="controls-container">
-    <button class="btn-float" id="music-btn" onclick="toggleMusic()">🎵</button>
-    <button class="btn-float" id="scroll-btn" onclick="toggleAutoScroll()">▶️</button>
-  </div>
-
-  <!-- MAIN WRAPPER SLIDES -->
-  <div id="main-wrapper">
-
-    <!-- SLIDE 1: MAIN COVER -->
-    <section class="section" id="slide-0">
-      <div class="slider-container">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80');"></div>
-      </div>
-      <div class="overlay"></div>
-      <div class="hero-content">
-        <p class="subtitle">The Wedding Of</p>
-        <h1>Dede Priatna<br>&<br>Nina Nurlela</h1>
-        <p style="letter-spacing: 2px;">24 OKTOBER 2026</p>
-      </div>
-    </section>
-
-    <!-- SLIDE 2: SALAM & QUOTE -->
-    <section class="section" id="slide-1">
-      <div class="card">
-        <h2>Salam & Doa</h2>
-        <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
-          "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
-        </p>
-        <div class="divider"></div>
-        <p style="font-size: 0.8rem; font-style: italic; color: var(--accent-dark);">
-          (QS. Ar-Rum: 21)
-        </p>
-      </div>
-    </section>
-
-    <!-- SLIDE 3: MEMPELAI PRIA & WANITA -->
-    <section class="section" id="slide-2">
-      <div class="card">
-        <h2>Kedua Mempelai</h2>
-        <div class="profile-box">
-          <div class="profile-name">Dede Priatna</div>
-          <div class="parents">Putra dari Bapak Dudung & Ibu DASINI</div>
-        </div>
-        <div class="divider"></div>
-        <div class="profile-box">
-          <div class="profile-name">Nina Nurlela</div>
-          <div class="parents">Putri dari Bapak Atifin & Ibu Aan</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 4: CERITA CINTA (OUR STORY) -->
-    <section class="section" id="slide-3">
-      <div class="card">
-        <h2>Kisah Cinta Kami</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2021 - Pertama Bertemu</div>
-            <div class="timeline-desc">Awal mula kami dipertemukan dalam sebuah kegiatan kepemimpinan.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2024 - Menjalin Hubungan</div>
-            <div class="timeline-desc">Memutuskan untuk berkomitmen dan saling mengenal lebih dalam.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2026 - Pernikahan</div>
-            <div class="timeline-desc">Mengikat janji suci dan merencanakan masa depan bersama.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 5: AKAD NIKAH -->
-    <section class="section" id="slide-4">
-      <div class="card">
-        <h2>Akad Nikah</h2>
-        <div class="event-item">
-          <div class="event-title">Waktu & Tempat</div>
-          <div class="event-date"><strong>Sabtu, 24 Oktober 2026</strong></div>
-          <div class="event-date">Pukul 08.00 - 10.00 WIB</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">
-            Sidamulih<br>Kec. Pamarican, Kabupaten Ciamis, Jawa Barat
-          </div>
-        </div>
-        <div style="text-align: center; margin: 15px 0;">
-          <a href="https://www.google.com/maps/search/?api=1&query=Sidamulih+Pamarican+Ciamis" 
-             target="_top" 
-             rel="noopener noreferrer"
-             style="display: inline-block; background-color: #4285F4; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-            📍 Petunjuk Arah (Navigasi Maps)
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 6: RESEPSI PERNIKAHAN -->
-    <section class="section" id="slide-5">
-      <div class="card">
-        <h2>Resepsi Pernikahan</h2>
-        <div class="event-item">
-          <div class="event-title">Waktu & Tempat</div>
-          <div class="event-date"><strong>Sabtu, 24 Oktober 2026</strong></div>
-          <div class="event-date">Pukul 11.00 - 14.00 WIB</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">
-            Sidamulih<br>Kec. Pamarican, Kabupaten Ciamis, Jawa Barat
-          </div>
-        </div>
-        <div style="text-align: center; margin: 15px 0;">
-          <a href="https://www.google.com/maps/search/?api=1&query=Sidamulih+Pamarican+Ciamis" 
-             target="_top" 
-             rel="noopener noreferrer"
-             style="display: inline-block; background-color: #4285F4; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-            📍 Petunjuk Arah (Navigasi Maps)
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 7: GALERI MOMEN -->
-    <section class="section" id="slide-6">
-      <div class="card">
-        <h2>Galeri Momen</h2>
-        <div class="gallery-grid">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Galeri 1">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Galeri 2">
-          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=400&q=80" alt="Galeri 3">
-          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=400&q=80" alt="Galeri 4">
-          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=400&q=80" alt="Galeri 5">
-          <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=400&q=80" alt="Galeri 6">
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 8: DIGITAL GIFT -->
-    <section class="section" id="slide-7">
-      <div class="card">
-        <h2>Tanda Kasih (Gift)</h2>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
-          Doa restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi hadiah, dapat melalui:
-        </p>
-        <div class="bank-card">
-          <div class="bank-name">BANK BCA</div>
-          <div class="account-num">1234 5678 90</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted);">a.n. Dede Priatna</div>
-        </div>
-        <div class="bank-card">
-          <div class="bank-name">BANK MANDIRI</div>
-          <div class="account-num">0987 6543 21</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted);">a.n. Nina Nurlela</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 9: RSVP -->
-    <section class="section" id="slide-8">
-      <div class="card">
-        <h2>Konfirmasi Kehadiran</h2>
-        <form id="rsvp-form" onsubmit="sendRSVPToWA(event)">
-          <input type="text" id="rsvp-nama" placeholder="Nama Lengkap" required>
-          <select id="rsvp-status" required>
-            <option value="">Status Kehadiran</option>
-            <option value="Hadir Akad & Resepsi">Hadir Akad & Resepsi</option>
-            <option value="Hadir Akad Saja">Hadir Akad Saja</option>
-            <option value="Hadir Resepsi Saja">Hadir Resepsi Saja</option>
-            <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
-          </select>
-          <input type="number" id="rsvp-jumlah" placeholder="Jumlah Tamu Hadir" min="1" max="5" value="1">
-          <button type="submit" class="btn-action">Kirim RSVP via WhatsApp</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- SLIDE 10: UCAPAN & DOA RESTU -->
-    <section class="section" id="slide-9">
-      <div class="card">
-        <h2>Ucapan & Doa Restu</h2>
-        <form onsubmit="alert('Terima kasih atas doa & ucapannya!'); return false;">
-          <input type="text" placeholder="Nama Anda" required>
-          <textarea rows="3" placeholder="Tuliskan doa & ucapan..." required></textarea>
-          <button type="submit" class="btn-action">Kirim Doa</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- SLIDE 11: PENUTUP -->
-    <section class="section" id="slide-10">
-      <div class="card">
-        <h2>Terima Kasih</h2>
-        <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
-          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
-        </p>
-        <div class="divider"></div>
-        <p style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: var(--accent-dark);">
-          Kami Yang Berbahagia
-        </p>
-        <p style="font-size: 0.9rem; margin-top: 5px;">Keluarga Besar Bpk. Dudung & Bpk. Atifin</p>
-      </div>
-    </section>
-
-  </div>
-
-  <script>
-    // 1. CAROUSEL FOTO SLIDE 1
-    const slides = document.querySelectorAll('.slide');
-    let currentImg = 0;
+    const weddingDate = new Date("October 24, 2026 08:00:00").getTime();
     setInterval(() => {
-      slides[currentImg].classList.remove('active');
-      currentImg = (currentImg + 1) % slides.length;
-      slides[currentImg].classList.add('active');
-    }, 3500);
-
-    // 2. MUSIK
-    const music = document.getElementById('bg-music');
-    const musicBtn = document.getElementById('music-btn');
-    let isPlaying = false;
-
-    function toggleMusic() {
-      if (isPlaying) {
-        music.pause();
-        musicBtn.classList.remove('spin');
-      } else {
-        music.play();
-        musicBtn.classList.add('spin');
-      }
-      isPlaying = !isPlaying;
-    }
-
-    document.body.addEventListener('click', () => {
-      if (!isPlaying) toggleMusic();
-    }, { once: true });
-
-    // 3. ENGINE AUTO-SCROLL & MANUAL SCROLL
-    const totalSlides = 11;
-    let currentSlide = 0;
-    let autoScrollInterval = null;
-    const scrollBtn = document.getElementById('scroll-btn');
-
-    function toggleAutoScroll() {
-      if (autoScrollInterval) {
-        clearInterval(autoScrollInterval);
-        autoScrollInterval = null;
-        scrollBtn.textContent = '▶️';
-      } else {
-        scrollBtn.textContent = '⏸️';
-        autoScrollInterval = setInterval(() => {
-          currentSlide = (currentSlide + 1) % totalSlides;
-          const targetElement = document.getElementById(`slide-${currentSlide}`);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 4000);
-      }
-    }
-
-    // 4. WHATSAPP RSVP HANDLER
-    function sendRSVPToWA(event) {
-      event.preventDefault();
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
       
-      const nomorWA = "6287704569720";
-      const nama = document.getElementById('rsvp-nama').value;
-      const status = document.getElementById('rsvp-status').value;
-      const jumlah = document.getElementById('rsvp-jumlah').value;
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const el = document.getElementById("countdown");
+        if(el) el.innerHTML = `${days} Hari ${hours} Jam ${minutes} Menit`;
+      } else {
+        const el = document.getElementById("countdown");
+        if(el) el.innerHTML = "Acara Sedang Berlangsung";
+      }
+    }, 1000);
 
-      const pesan = `Halo, saya ingin konfirmasi kehadiran RSVP Undangan:%0A%0A` +
-                    `*Nama:* ${encodeURIComponent(nama)}%0A` +
-                    `*Status:* ${encodeURIComponent(status)}%0A` +
-                    `*Jumlah Tamu:* ${encodeURIComponent(jumlah)} orang`;
+    let currentSection = 0;
+    const sections = document.querySelectorAll('section');
 
-      window.open(`https://wa.me/${nomorWA}?text=${pesan}`, '_blank');
-    }
-  </script>
-</body>
-                          </html>      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(139, 125, 107, 0.2);
-      padding: 30px 22px;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-      max-width: 420px;
-      width: 100%;
-      max-height: 85vh;
-      overflow-y: auto;
-    }
-
-    .card h2 {
-      font-family: var(--font-serif);
-      color: var(--accent-dark);
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: var(--accent-color);
-      margin: 15px auto;
-    }
-
-    /* COUPLE PROFILE SECTION */
-    .profile-box {
-      margin: 15px 0;
-    }
-
-    .profile-name {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .parents {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    /* EVENT DETAIL SECTION */
-    .event-item {
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 12px;
-      border-left: 3px solid var(--accent-color);
-      text-align: left;
-    }
-
-    .event-title {
-      font-weight: 600;
-      color: var(--accent-dark);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .event-date {
-      font-size: 0.85rem;
-      color: var(--text-main);
-      margin: 4px 0;
-    }
-
-    /* LOVE STORY TIMELINE */
-    .timeline {
-      text-align: left;
-      border-left: 2px solid var(--accent-color);
-      padding-left: 15px;
-      margin-left: 10px;
-    }
-
-    .timeline-item {
-      margin-bottom: 15px;
-      position: relative;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -21px;
-      top: 4px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent-color);
-    }
-
-    .timeline-year {
-      font-weight: 600;
-      font-size: 0.8rem;
-      color: var(--accent-dark);
-    }
-
-    .timeline-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* GALLERY GRID */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    /* GIFT & ACCOUNTS */
-    .bank-card {
-      background: #f4f1ea;
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 10px;
-    }
-
-    .bank-name {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--accent-dark);
-    }
-
-    .account-num {
-      font-family: monospace;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      margin: 4px 0;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.82rem;
-    }
-
-    .btn-action {
-      display: inline-block;
-      width: 100%;
-      padding: 10px;
-      background-color: var(--accent-color);
-      color: #fff;
-      text-decoration: none;
-      border: none;
-      border-radius: 20px;
-      font-size: 0.82rem;
-      cursor: pointer;
-      font-weight: 500;
-    }
-
-    /* FLOATING CONTROLS */
-    .controls-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .btn-float {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background-color: var(--accent-color);
-      color: #fff;
-      border: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-    }
-
-    .spin {
-      animation: spin 4s linear infinite;
-    }
-
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- BACKGROUND MUSIC -->
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- CONTROLS MELAYANG -->
-  <div class="controls-container">
-    <button class="btn-float" id="music-btn" onclick="toggleMusic()">🎵</button>
-    <button class="btn-float" id="scroll-btn" onclick="toggleAutoScroll()">▶️</button>
-  </div>
-
-  <!-- MAIN WRAPPER SLIDES -->
-  <div id="main-wrapper">
-
-    <!-- SLIDE 1: MAIN COVER -->
-    <section class="section">
-      <div class="slider-container">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80');"></div>
-      </div>
-      <div class="overlay"></div>
-      <div class="hero-content">
-        <p class="subtitle">The Wedding Of</p>
-        <h1>Dede Priatna<br>&<br>Nina Nurlela</h1>
-        <p style="letter-spacing: 2px;">24 OKTOBER 2026</p>
-      </div>
-    </section>
-
-    <!-- SLIDE 2: SALAM & QUOTE -->
-    <section class="section">
-      <div class="card">
-        <h2>Salam & Doa</h2>
-        <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
-          "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
-        </p>
-        <div class="divider"></div>
-        <p style="font-size: 0.8rem; font-style: italic; color: var(--accent-dark);">
-          (QS. Ar-Rum: 21)
-        </p>
-      </div>
-    </section>
-
-    <!-- SLIDE 3: MEMPELAI PRIA & WANITA -->
-    <section class="section">
-      <div class="card">
-        <h2>Kedua Mempelai</h2>
-        <div class="profile-box">
-          <div class="profile-name">Dede Priatna</div>
-          <div class="parents">Putra dari Bapak Dudung & Ibu DASINI</div>
-        </div>
-        <div class="divider"></div>
-        <div class="profile-box">
-          <div class="profile-name">Nina Nurlela</div>
-          <div class="parents">Putri dari Bapak Atifin & Ibu Aan</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 4: CERITA CINTA (OUR STORY) -->
-    <section class="section">
-      <div class="card">
-        <h2>Kisah Cinta Kami</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2021 - Pertama Bertemu</div>
-            <div class="timeline-desc">Awal mula kami dipertemukan dalam sebuah kegiatan kepemimpinan.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2024 - Menjalin Hubungan</div>
-            <div class="timeline-desc">Memutuskan untuk berkomitmen dan saling mengenal lebih dalam.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2026 - Pernikahan</div>
-            <div class="timeline-desc">Mengikat janji suci dan merencanakan masa depan bersama.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 5: AKAD NIKAH -->
-    <section class="section">
-      <div class="card">
-        <h2>Akad Nikah</h2>
-        <div class="event-item">
-          <div class="event-title">Waktu & Tempat</div>
-          <div class="event-date"><strong>Sabtu, 24 Oktober 2026</strong></div>
-          <div class="event-date">Pukul 08.00 - 10.00 WIB</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">
-            Desa Sidamulih<br>Kec. Pamarican, Kabupaten Ciamis, Jawa Barat
-          </div>
-        </div>
-        <div style="text-align: center; margin: 15px 0;">
-          <a href="https://www.google.com/maps/search/?api=1&query=Sidamulih+Pamarican+Ciamis" 
-             target="_top" 
-             rel="noopener noreferrer"
-             style="display: inline-block; background-color: #4285F4; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-            📍 Petunjuk Arah (Navigasi Maps)
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 6: RESEPSI PERNIKAHAN -->
-    <section class="section">
-      <div class="card">
-        <h2>Resepsi Pernikahan</h2>
-        <div class="event-item">
-          <div class="event-title">Waktu & Tempat</div>
-          <div class="event-date"><strong>Sabtu, 24 Oktober 2026</strong></div>
-          <div class="event-date">Pukul 11.00 - 14.00 WIB</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">
-            Desa Sidamulih<br>Kec. Pamarican, Kabupaten Ciamis, Jawa Barat
-          </div>
-        </div>
-        <div style="text-align: center; margin: 15px 0;">
-          <a href="https://www.google.com/maps/search/?api=1&query=Sidamulih+Pamarican+Ciamis" 
-             target="_top" 
-             rel="noopener noreferrer"
-             style="display: inline-block; background-color: #4285F4; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-            📍 Petunjuk Arah (Navigasi Maps)
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 7: GALERI MOMEN -->
-    <section class="section">
-      <div class="card">
-        <h2>Galeri Momen</h2>
-        <div class="gallery-grid">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Galeri 1">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Galeri 2">
-          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=400&q=80" alt="Galeri 3">
-          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=400&q=80" alt="Galeri 4">
-          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=400&q=80" alt="Galeri 5">
-          <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=400&q=80" alt="Galeri 6">
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 8: DIGITAL GIFT -->
-    <section class="section">
-      <div class="card">
-        <h2>Tanda Kasih (Gift)</h2>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
-          Doa restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi hadiah, dapat melalui:
-        </p>
-        <div class="bank-card">
-          <div class="bank-name">BANK BCA</div>
-          <div class="account-num">1234 5678 90</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted);">a.n. Dede Priatna</div>
-        </div>
-        <div class="bank-card">
-          <div class="bank-name">BANK MANDIRI</div>
-          <div class="account-num">0987 6543 21</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted);">a.n. Nina Nurlela</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 9: RSVP -->
-    <section class="section">
-      <div class="card">
-        <h2>Konfirmasi Kehadiran</h2>
-        <form id="rsvp-form" onsubmit="sendRSVPToWA(event)">
-          <input type="text" id="rsvp-nama" placeholder="Nama Lengkap" required>
-          <select id="rsvp-status" required>
-            <option value="">Status Kehadiran</option>
-            <option value="Hadir Akad & Resepsi">Hadir Akad & Resepsi</option>
-            <option value="Hadir Akad Saja">Hadir Akad Saja</option>
-            <option value="Hadir Resepsi Saja">Hadir Resepsi Saja</option>
-            <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
-          </select>
-          <input type="number" id="rsvp-jumlah" placeholder="Jumlah Tamu Hadir" min="1" max="5" value="1">
-          <button type="submit" class="btn-action">Kirim RSVP via WhatsApp</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- SLIDE 10: UCAPAN & DOA RESTU -->
-    <section class="section">
-      <div class="card">
-        <h2>Ucapan & Doa Restu</h2>
-        <form onsubmit="alert('Terima kasih atas doa & ucapannya!'); return false;">
-          <input type="text" placeholder="Nama Anda" required>
-          <textarea rows="3" placeholder="Tuliskan doa & ucapan..." required></textarea>
-          <button type="submit" class="btn-action">Kirim Doa</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- SLIDE 11: PENUTUP -->
-    <section class="section">
-      <div class="card">
-        <h2>Terima Kasih</h2>
-        <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
-          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
-        </p>
-        <div class="divider"></div>
-        <p style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: var(--accent-dark);">
-          Kami Yang Berbahagia
-        </p>
-        <p style="font-size: 0.9rem; margin-top: 5px;">Keluarga Besar Bpk. Dudung & Bpk. Atifin</p>
-      </div>
-    </section>
-
-  </div>
-
-  <script>
-    // 1. CAROUSEL FOTO SLIDE 1
-    const slides = document.querySelectorAll('.slide');
-    let currentImg = 0;
     setInterval(() => {
-      slides[currentImg].classList.remove('active');
-      currentImg = (currentImg + 1) % slides.length;
-      slides[currentImg].classList.add('active');
-    }, 3500);
+      const activeEl = document.activeElement;
+      const isTyping = activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'SELECT' || activeEl.tagName === 'TEXTAREA');
 
-    // 2. MUSIK
-    const music = document.getElementById('bg-music');
-    const musicBtn = document.getElementById('music-btn');
-    let isPlaying = false;
-
-    function toggleMusic() {
-      if (isPlaying) {
-        music.pause();
-        musicBtn.classList.remove('spin');
-      } else {
-        music.play();
-        musicBtn.classList.add('spin');
+      if (isTyping || currentSection >= sections.length - 1) {
+        return;
       }
-      isPlaying = !isPlaying;
-    }
 
-    document.body.addEventListener('click', () => {
-      if (!isPlaying) toggleMusic();
-    }, { once: true });
-
-    // 3. ENGINE SMOOTH SCROLL (11 SLIDES)
-    const wrapper = document.getElementById('main-wrapper');
-    const totalSlides = 11;
-    let currentSlide = 0;
-    let autoScrollInterval = null;
-    const scrollBtn = document.getElementById('scroll-btn');
-
-    function goToSlide(index) {
-      currentSlide = index;
-      wrapper.style.transform = `translateY(-${currentSlide * 100}vh)`;
-    }
-
-    function toggleAutoScroll() {
-      if (autoScrollInterval) {
-        clearInterval(autoScrollInterval);
-        autoScrollInterval = null;
-        scrollBtn.textContent = '▶️';
-      } else {
-        scrollBtn.textContent = '⏸️';
-        autoScrollInterval = setInterval(() => {
-          currentSlide = (currentSlide + 1) % totalSlides;
-          goToSlide(currentSlide);
-        }, 4000);
-      }
-    }
-
-    // 4. WHATSAPP RSVP HANDLER
-    function sendRSVPToWA(event) {
-      event.preventDefault();
-      
-      const nomorWA = "6287704569720";
-      const nama = document.getElementById('rsvp-nama').value;
-      const status = document.getElementById('rsvp-status').value;
-      const jumlah = document.getElementById('rsvp-jumlah').value;
-
-      const pesan = `Halo, saya ingin konfirmasi kehadiran RSVP Undangan:%0A%0A` +
-                    `*Nama:* ${encodeURIComponent(nama)}%0A` +
-                    `*Status:* ${encodeURIComponent(status)}%0A` +
-                    `*Jumlah Tamu:* ${encodeURIComponent(jumlah)} orang`;
-
-      window.open(`https://wa.me/${nomorWA}?text=${pesan}`, '_blank');
-    }
+      currentSection++;
+      sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+    }, 5000);
   </script>
+
 </body>
 </html>
