@@ -169,6 +169,29 @@
       margin-top: 6px;
       border: 1px dashed #c5a059;
     }
+    .countdown-grid {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+    .countdown-item {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      min-width: 50px;
+    }
+    .countdown-number {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #f3e5ab;
+      display: block;
+    }
+    .countdown-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
   </style>
 </head>
 <body>
@@ -187,7 +210,7 @@
       <div class="couple-divider">&</div>
       <div class="couple-name">Nina Nurlela</div>
     </div>
-    <p style="margin-top: 4px; letter-spacing: 2px; color: #f3e5ab; font-weight: 500;">Sabtu, 16 maret 2026</p>
+    <p style="margin-top: 4px; letter-spacing: 2px; color: #f3e5ab; font-weight: 500;">Sabtu, 24 Oktober 2026</p>
     <p style="font-size: 0.7rem; font-style: italic; opacity: 0.8; margin-top: 10px; background: rgba(0,0,0,0.4); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">Ketuk layar untuk mulai musik</p>
   </section>
 
@@ -223,7 +246,7 @@
     <h2>Waktu Acara</h2>
     <div class="info-box">
       <p style="color: #f3e5ab; font-weight: bold;">Akad Nikah & Resepsi</p>
-      <p style="margin-top: 5px; font-size: 0.8rem;">📅 Sabtu, 16 maret 2026<br>⏰ Pukul 08.00 WIB s.d. Selesai</p>
+      <p style="margin-top: 5px; font-size: 0.8rem;">📅 Sabtu, 24 Oktober 2026<br>⏰ Pukul 08.00 WIB s.d. Selesai</p>
     </div>
   </section>
 
@@ -246,8 +269,25 @@
   <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Menuju Hari Bahagia</h2>
     <div class="info-box">
-      <p style="font-size: 0.8rem; margin-bottom: 6px;">Waktu Menuju 24 Oktober 2026:</p>
-      <p id="countdown" style="font-size: 0.95rem; font-weight: bold; color: #f3e5ab; letter-spacing: 1px;">Menghitung...</p>
+      <p style="font-size: 0.8rem; margin-bottom: 4px;">Menuju 24 Oktober 2026:</p>
+      <div class="countdown-grid">
+        <div class="countdown-item">
+          <span id="days" class="countdown-number">00</span>
+          <span class="countdown-label">Hari</span>
+        </div>
+        <div class="countdown-item">
+          <span id="hours" class="countdown-number">00</span>
+          <span class="countdown-label">Jam</span>
+        </div>
+        <div class="countdown-item">
+          <span id="minutes" class="countdown-number">00</span>
+          <span class="countdown-label">Menit</span>
+        </div>
+        <div class="countdown-item">
+          <span id="seconds" class="countdown-number">00</span>
+          <span class="countdown-label">Detik</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -358,24 +398,30 @@
       window.open(url, '_blank');
     }
 
-    const weddingDate = new Date("march 16, 2027 08:00:00").getTime();
+    // Hitung Mundur dengan Detik (Target: 24 Oktober 2026 08:00:00)
+    const weddingDate = new Date("October 24, 2026 08:00:00").getTime();
+    
     setInterval(() => {
       const now = new Date().getTime();
       const distance = weddingDate - now;
       
       if (distance > 0) {
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Menampilkan hasil ke elemen HTML
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
-}, 1000);
-
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+      } else {
+        document.getElementById("days").innerHTML = "0";
+        document.getElementById("hours").innerHTML = "0";
+        document.getElementById("minutes").innerHTML = "0";
+        document.getElementById("seconds").innerHTML = "0";
+      }
+    }, 1000);
 
     let currentSection = 0;
     const sections = document.querySelectorAll('section');
