@@ -26,13 +26,12 @@
       background-position: center;
       padding: 20px;
       box-sizing: border-box;
-      background-color: #111;
     }
     section::after {
       content: '';
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.9));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.85));
       z-index: 1;
     }
     section > * {
@@ -72,7 +71,7 @@
       text-shadow: 0 1px 3px rgba(0,0,0,0.8);
     }
     .info-box, .rsvp-form {
-      background: rgba(20, 20, 20, 0.8);
+      background: rgba(20, 20, 20, 0.7);
       padding: 14px;
       border-radius: 12px;
       border: 1px solid rgba(197, 160, 89, 0.4);
@@ -197,16 +196,15 @@
 </head>
 <body>
 
-  <!-- Bagian Pemutar Musik Audio -->
+  <!-- Musik menggunakan instrumen siap pakai yang stabil -->
   <audio id="bg-music" loop>
-    <source src="https://docs.google.com/uc?export=download&id=13s9YNjnqUFhDXPO4JXG-wP1tmQwVl2NU" type="audio/mpeg">
-    Your browser does not support the audio element.
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c3867ef5.mp3" type="audio/mpeg">
   </audio>
 
   <button id="music-btn" onclick="toggleMusic()">🎵</button>
 
-  <section>
-    <div style="font-size: 3rem; margin-bottom: 8px;">💍</div>
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="profile-photo" alt="Nina">
     <p style="letter-spacing: 4px; font-size: 0.75rem; opacity: 0.9; text-transform: uppercase;">The Wedding Of</p>
     <div class="couple-container">
       <div class="couple-name">Dede Priatna</div>
@@ -217,7 +215,7 @@
     <p style="font-size: 0.7rem; font-style: italic; opacity: 0.8; margin-top: 10px; background: rgba(0,0,0,0.4); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">Ketuk layar untuk mulai musik</p>
   </section>
 
-  <section>
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Maha Suci Allah</h2>
     <div class="info-box">
       <p style="font-size: 0.8rem; font-style: italic; color: #f9f3d9;">
@@ -227,23 +225,25 @@
     </div>
   </section>
 
-  <section>
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Mempelai Pria</h2>
     <div class="info-box">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="profile-photo" alt="Dede">
       <p style="font-size: 1.1rem; font-weight: bold; color: #f3e5ab; margin-bottom: 2px; font-family: Georgia, serif;">Dede Priatna</p>
       <p style="font-size: 0.78rem; margin: 0; opacity: 0.9;">Putra tercinta dari<br><strong>Bpk. Dudung & Ibu Dasini</strong></p>
     </div>
   </section>
 
-  <section>
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Mempelai Wanita</h2>
     <div class="info-box">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="profile-photo" alt="Nina">
       <p style="font-size: 1.1rem; font-weight: bold; color: #f3e5ab; margin-bottom: 2px; font-family: Georgia, serif;">Nina Nurlela</p>
       <p style="font-size: 0.78rem; margin: 0; opacity: 0.9;">Putri tercinta dari<br><strong>Bpk. Arifin & Ibu Aan Lasmanah</strong></p>
     </div>
   </section>
 
-  <section>
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Waktu Acara</h2>
     <div class="info-box">
       <p style="color: #f3e5ab; font-weight: bold;">Akad Nikah & Resepsi</p>
@@ -251,7 +251,7 @@
     </div>
   </section>
 
-  <section>
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Lokasi Acara</h2>
     <div class="info-box">
       <p style="color: #f3e5ab; font-weight: bold;">📍 Sidamulih</p>
@@ -259,7 +259,7 @@
     </div>
   </section>
 
-  <section>
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Peta Lokasi</h2>
     <div class="info-box">
       <p style="font-size: 0.8rem; margin-bottom: 8px;">Tekan tombol di bawah untuk membuka petunjuk arah via Google Maps.</p>
@@ -267,7 +267,7 @@
     </div>
   </section>
 
-  <section>
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Menuju Hari Bahagia</h2>
     <div class="info-box">
       <p style="font-size: 0.8rem; margin-bottom: 4px;">Menuju 16 Maret 2027:</p>
@@ -292,7 +292,23 @@
     </div>
   </section>
 
-  <section>
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Galeri Momen (1)</h2>
+    <div class="info-box" style="padding: 10px;">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="gallery-photo" alt="Galeri Momen">
+      <p style="font-size: 0.75rem; color: #f3e5ab; margin-top: 6px; font-style: italic;">Dede & Nina</p>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Galeri Momen (2)</h2>
+    <div class="info-box" style="padding: 10px;">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="gallery-photo" alt="Galeri Momen">
+      <p style="font-size: 0.75rem; color: #f3e5ab; margin-top: 6px; font-style: italic;">Kebersamaan</p>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Kirim Hadiah</h2>
     <div class="info-box">
       <p style="font-size: 0.78rem; margin-bottom: 6px;">Doa restu Anda adalah karunia terindah. Namun jika ingin mengirimkan tanda kasih, silakan melalui:</p>
@@ -304,7 +320,7 @@
     </div>
   </section>
 
-  <section>
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>RSVP Kehadiran</h2>
     <div class="rsvp-form">
       <label style="font-size: 0.75rem; color: #f3e5ab;">Nama Lengkap:</label>
@@ -323,7 +339,7 @@
     </div>
   </section>
 
-  <section>
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Terima Kasih</h2>
     <div class="info-box">
       <p style="font-size: 0.8rem; line-height: 1.5; margin-bottom: 8px;">
