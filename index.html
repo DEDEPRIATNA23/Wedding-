@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -33,6 +32,10 @@
 
     body {
       background-color: var(--bg-dark);
+      background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://iili.io/CpMWIxS.md.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: var(--text-main);
       overflow-x: hidden;
       line-height: 1.6;
@@ -138,15 +141,16 @@
       padding: 20px 16px 80px 16px;
     }
 
+    /* Background gambar pada setiap section / slide */
     section {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.82)), url('https://iili.io/CpMWIxS.md.jpg') center/cover no-repeat;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(251, 191, 36, 0.3);
       border-radius: 20px;
       padding: 30px 20px;
       margin-bottom: 30px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     h2.section-title {
@@ -184,8 +188,9 @@
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--primary);
+      border: 3px solid var(--gold);
       margin-bottom: 12px;
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
     }
 
     .couple-name {
@@ -203,16 +208,16 @@
     }
 
     .timer-card {
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.85);
       padding: 12px 5px;
       border-radius: 12px;
-      border: 1px solid rgba(139, 92, 246, 0.3);
+      border: 1px solid rgba(251, 191, 36, 0.3);
     }
 
     .timer-num {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--primary);
+      color: var(--gold);
     }
 
     .timer-label {
@@ -248,12 +253,13 @@
       height: 160px;
       object-fit: cover;
       border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     /* Bank Account Card */
     .bank-card {
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(251, 191, 36, 0.3);
       border-radius: 15px;
       padding: 18px;
       margin-top: 15px;
@@ -262,7 +268,7 @@
 
     .bank-name {
       font-weight: 700;
-      color: var(--primary);
+      color: var(--gold);
       font-size: 1.1rem;
       margin-bottom: 4px;
     }
@@ -271,7 +277,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.4);
       padding: 10px 14px;
       border-radius: 8px;
       margin: 8px 0;
@@ -317,8 +323,8 @@
       width: 100%;
       padding: 12px;
       border-radius: 10px;
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: white;
       outline: none;
     }
@@ -370,12 +376,10 @@
 </head>
 <body>
 
-
-<!-- Audio Piano Romantis & Syahdu -->
+  <!-- Audio Piano String Romantis Syahdu -->
   <audio id="bg-audio" loop playsinline preload="auto">
     <source src="https://cdn.fesliyanstudios.com/music/downloads-c/romantic-music/Move-Together.mp3" type="audio/mpeg">
   </audio>
-
 
   <!-- Floating Audio Button -->
   <button class="music-btn" id="music-toggle" aria-label="Toggle Audio">
@@ -666,4 +670,5 @@
     });
   </script>
 </body>
-</html>
+  </html>
+          
