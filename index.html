@@ -5,19 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Wedding of Dede & Nina</title>
   <style>
+    /* Mengunci layout proporsional di tengah layaknya layar HP saat dibuka di laptop/PC */
     body {
-    max-width: 480px;
-    margin: 0 auto;
-    box-shadow: 0 0 30px rgba(0,0,0,0.9);
-    
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #050505;
-    color: #fff;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-  }
+      max-width: 480px;
+      margin: 0 auto;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      box-shadow: 0 0 30px rgba(0,0,0,0.9);
+    }
     section {
       height: 100vh;
       display: flex;
@@ -200,10 +198,12 @@
 </head>
 <body>
 
+  <!-- Audio dengan link stabil -->
   <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
   </audio>
 
+  <!-- Tombol Kontrol Musik -->
   <button id="music-btn" onclick="toggleMusic()">🎵</button>
 
   <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
@@ -215,7 +215,7 @@
       <div class="couple-name">Nina Nurlela</div>
     </div>
     <p style="margin-top: 4px; letter-spacing: 2px; color: #f3e5ab; font-weight: 500;">Sabtu, 16 Maret 2027</p>
-    <p style="font-size: 0.7rem; font-style: italic; opacity: 0.8; margin-top: 10px; background: rgba(0,0,0,0.4); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">Ketuk layar untuk mulai musik</p>
+    <p style="font-size: 0.7rem; font-style: italic; opacity: 0.8; margin-top: 10px; background: rgba(0,0,0,0.4); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">Ketuk layar untuk mulai</p>
   </section>
 
   <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
@@ -231,7 +231,7 @@
   <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Mempelai Pria</h2>
     <div class="info-box">
-      <img src="https://i.postimg.cc/XJxGDVH0/IMG20260822190517.jpg" class="profile-photo" alt="Dede">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="profile-photo" alt="Dede">
       <p style="font-size: 1.1rem; font-weight: bold; color: #f3e5ab; margin-bottom: 2px; font-family: Georgia, serif;">Dede Priatna</p>
       <p style="font-size: 0.78rem; margin: 0; opacity: 0.9;">Putra tercinta dari<br><strong>Bpk. Dudung & Ibu Dasini</strong></p>
     </div>
@@ -240,7 +240,7 @@
   <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Mempelai Wanita</h2>
     <div class="info-box">
-      <img src="https://i.postimg.cc/T2WDfX4p/IMG-20260629-WA0007.jpg" class="profile-photo" alt="Nina">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="profile-photo" alt="Nina">
       <p style="font-size: 1.1rem; font-weight: bold; color: #f3e5ab; margin-bottom: 2px; font-family: Georgia, serif;">Nina Nurlela</p>
       <p style="font-size: 0.78rem; margin: 0; opacity: 0.9;">Putri tercinta dari<br><strong>Bpk. Arifin & Ibu Aan Lasmanah</strong></p>
     </div>
@@ -250,7 +250,7 @@
     <h2>Waktu Acara</h2>
     <div class="info-box">
       <p style="color: #f3e5ab; font-weight: bold;">Akad Nikah & Resepsi</p>
-      <p style="margin-top: 5px; font-size: 0.8rem;">📅 Sabtu, 16 maret 2027<br>⏰ Pukul 08.00 WIB s.d. Selesai</p>
+      <p style="margin-top: 5px; font-size: 0.8rem;">📅 Sabtu, 16 Maret 2027<br>⏰ Pukul 08.00 WIB s.d. Selesai</p>
     </div>
   </section>
 
@@ -266,14 +266,14 @@
     <h2>Peta Lokasi</h2>
     <div class="info-box">
       <p style="font-size: 0.8rem; margin-bottom: 8px;">Tekan tombol di bawah untuk membuka petunjuk arah via Google Maps.</p>
-      <a href="https://maps.app.goo.gl/cygaa4eb7Jd8PtEs9?g_st=a" target="_blank" rel="noopener noreferrer" class="btn-action" style="padding:7px 10px;">📍 Buka Google Maps</a>
+      <a href="https://maps.app.goo.gl/qW5EhMve3rAjFiGd9?g_st=a" target="_blank" rel="noopener noreferrer" class="btn-action" style="padding:7px 10px;">📍 Buka Google Maps</a>
     </div>
   </section>
 
   <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Menuju Hari Bahagia</h2>
     <div class="info-box">
-      <p style="font-size: 0.8rem; margin-bottom: 4px;">Menuju 16 maret 2027</p>
+      <p style="font-size: 0.8rem; margin-bottom: 4px;">Menuju 16 Maret 2027:</p>
       <div class="countdown-grid">
         <div class="countdown-item">
           <span id="days" class="countdown-number">00</span>
@@ -298,7 +298,7 @@
   <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Galeri Momen (1)</h2>
     <div class="info-box" style="padding: 10px;">
-      <img src="GANTI_LINK_FOTO_GALERI_1" class="gallery-photo" alt="Galeri Momen">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="gallery-photo" alt="Galeri Momen">
       <p style="font-size: 0.75rem; color: #f3e5ab; margin-top: 6px; font-style: italic;">Dede & Nina</p>
     </div>
   </section>
@@ -306,12 +306,12 @@
   <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Galeri Momen (2)</h2>
     <div class="info-box" style="padding: 10px;">
-      <img src="GANTI_LINK_FOTO_GALERI_2" class="gallery-photo" alt="Galeri Momen">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="gallery-photo" alt="Galeri Momen">
       <p style="font-size: 0.75rem; color: #f3e5ab; margin-top: 6px; font-style: italic;">Kebersamaan</p>
     </div>
   </section>
 
-<section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>Kirim Hadiah</h2>
     <div class="info-box">
       <p style="font-size: 0.78rem; margin-bottom: 6px;">Doa restu Anda adalah karunia terindah. Namun jika ingin mengirimkan tanda kasih, silakan melalui:</p>
@@ -325,12 +325,435 @@
 
       <!-- Rekening Nina Nurlela -->
       <div class="rek-box" style="margin-top: 8px;">
-        <p style="margin: 2px 0; font-size: 0.75rem; color: #f3e5ab; font-weight: bold;">BCA</p>
-        <p style="margin: 2px 0; font-size: 0.85rem; font-family: monospace;">1381684721</p>
+        <p style="margin: 2px 0; font-size: 0.75rem; color: #f3e5ab; font-weight: bold;">BCA / Mandiri</p>
+        <p style="margin: 2px 0; font-size: 0.85rem; font-family: monospace;">MASUKKAN_NOMOR_REKENING</p>
         <p style="margin: 2px 0; font-size: 0.75rem; opacity: 0.9;">a.n. Nina Nurlela</p>
       </div>
     </div>
   </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>RSVP Kehadiran</h2>
+    <div class="rsvp-form">
+      <label style="font-size: 0.75rem; color: #f3e5ab;">Nama Lengkap:</label>
+      <input type="text" id="nama-rsvp" placeholder="Masukkan nama...">
+      
+      <label style="font-size: 0.75rem; color: #f3e5ab;">Kehadiran:</label>
+      <select id="status-rsvp">
+        <option value="Hadir">Hadir</option>
+        <option value="Berhalangan">Berhalangan Hadir</option>
+      </select>
+
+      <label style="font-size: 0.75rem; color: #f3e5ab;">Jumlah Tamu:</label>
+      <input type="number" id="jumlah-rsvp" value="1" min="1" max="5">
+
+      <button class="btn-action btn-wa" onclick="kirimWhatsApp()" style="margin-top: 4px;">Kirim RSVP via WhatsApp</button>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Terima Kasih</h2>
+    <div class="info-box">
+      <p style="font-size: 0.8rem; line-height: 1.5; margin-bottom: 8px;">
+        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+      </p>
+      <p style="font-size: 0.78rem; font-style: italic; color: #f3e5ab; margin: 6px 0;">
+        "Wassalamu'alaikum Warahmatullahi Wabarakatuh"
+      </p>
+      <div style="margin-top: 6px;">
+        <p style="font-size: 0.8rem; font-weight: bold; margin: 0; color: #f3e5ab;">Kami yang berbahagia,</p>
+        <p style="font-size: 0.9rem; margin: 2px 0; font-family: Georgia, serif;">Dede & Nina</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-btn');
+    let isPlaying = false;
+
+    async function toggleMusic() {
+      try {
+        if (isPlaying) {
+          music.pause();
+          musicBtn.classList.remove('spin');
+          musicBtn.innerHTML = "🎵";
+          isPlaying = false;
+        } else {
+          await music.play();
+          musicBtn.classList.add('spin');
+          musicBtn.innerHTML = "⏸";
+          isPlaying = true;
+        }
+      } catch (err) {
+        console.log("Pemutaran dijeda:", err);
+      }
+    }
+
+    // Musik otomatis menyala pada sentuhan/ketukan pertama di layar
+    document.body.addEventListener('click', function initAudio() {
+      if (!isPlaying) {
+        music.play().then(() => {
+          musicBtn.classList.add('spin');
+          musicBtn.innerHTML = "⏸";
+          isPlaying = true;
+        }).catch(err => {
+          console.log("Menunggu interaksi berikutnya");
+        });
+      }
+      document.body.removeEventListener('click', initAudio);
+    }, { once: true });
+
+    function kirimWhatsApp() {
+      const nama = document.getElementById('nama-rsvp').value;
+      const status = document.getElementById('status-rsvp').value;
+      const jumlah = document.getElementById('jumlah-rsvp').value;
+      
+      if (!nama) {
+        alert('Mohon isi nama Anda terlebih dahulu!');
+        return;
+      }
+
+      const nomorAdmin = "6287704569720";
+      const pesan = `Halo, saya ${nama}.\n\nKonfirmasi Kehadiran: *${status}*\nJumlah Tamu: *${jumlah} orang*`;
+      const url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+    }
+
+    // Hitung mundur menuju 16 Maret 2027
+    const weddingDate = new Date("march 16, 2027 08:00:00").getTime();
+    
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+      
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding of Dede & Nina</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #050505;
+      color: #fff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    section::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.85));
+      z-index: 1;
+    }
+    section > * {
+      z-index: 2;
+    }
+    .couple-container {
+      margin: 10px 0;
+    }
+    .couple-name {
+      font-family: 'Georgia', serif;
+      font-size: 2.1rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+      color: #f3e5ab;
+      margin: 4px 0;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+    }
+    .couple-divider {
+      font-family: 'Georgia', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      color: #fff;
+      margin: 2px 0;
+      opacity: 0.9;
+    }
+    h2 {
+      font-family: 'Georgia', serif;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #f3e5ab;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+    p {
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+    .info-box, .rsvp-form {
+      background: rgba(20, 20, 20, 0.7);
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      backdrop-filter: blur(8px);
+      width: 100%;
+      max-width: 330px;
+      text-align: center;
+      box-sizing: border-box;
+      margin-bottom: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    }
+    .profile-photo {
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #c5a059;
+      margin: 0 auto 8px auto;
+      display: block;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+      background-color: #333;
+    }
+    .gallery-photo {
+      width: 100%;
+      height: 140px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      margin-top: 6px;
+      background-color: #333;
+    }
+    .rsvp-form {
+      text-align: left;
+    }
+    .rsvp-form input, .rsvp-form select {
+      width: 100%;
+      padding: 7px;
+      margin-top: 3px;
+      margin-bottom: 6px;
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-family: inherit;
+      font-size: 0.8rem;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+    }
+    #music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      background: linear-gradient(135deg, #c5a059, #e6ca87);
+      border: none;
+      color: #111;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(197, 160, 89, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .spin {
+      animation: rotation 3s linear infinite;
+    }
+    @keyframes rotation {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .btn-action {
+      background: linear-gradient(135deg, #c5a059, #e6ca87);
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      padding: 8px;
+      width: 100%;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .btn-wa {
+      background: linear-gradient(135deg, #25d366, #1ebe5d);
+      color: #fff;
+    }
+    .rek-box {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px;
+      border-radius: 6px;
+      margin-top: 6px;
+      border: 1px dashed #c5a059;
+    }
+    .countdown-grid {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+    .countdown-item {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      min-width: 50px;
+    }
+    .countdown-number {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #f3e5ab;
+      display: block;
+    }
+    .countdown-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audio menggunakan link instrumen publik stabil -->
+  <audio id="bg-music" loop>
+    <source src="https://cdn.jsdelivr.net/gh/anars/blank-audio@masterz/250-milliseconds-of-silence.mp3" type="audio/mpeg">
+    <source src="https://actions.google.com/sounds/v1/ambiences/daytime_forest_bonfire.ogg" type="audio/ogg">
+  </audio>
+
+  <button id="music-btn" onclick="toggleMusic()">🎵</button>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="profile-photo" alt="Nina">
+    <p style="letter-spacing: 4px; font-size: 0.75rem; opacity: 0.9; text-transform: uppercase;">The Wedding Of</p>
+    <div class="couple-container">
+      <div class="couple-name">Dede Priatna</div>
+      <div class="couple-divider">&</div>
+      <div class="couple-name">Nina Nurlela</div>
+    </div>
+    <p style="margin-top: 4px; letter-spacing: 2px; color: #f3e5ab; font-weight: 500;">Sabtu, 16 Maret 2027</p>
+    <p style="font-size: 0.7rem; font-style: italic; opacity: 0.8; margin-top: 10px; background: rgba(0,0,0,0.4); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">Ketuk tombol 🎵 di pojok bawah</p>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Maha Suci Allah</h2>
+    <div class="info-box">
+      <p style="font-size: 0.8rem; font-style: italic; color: #f9f3d9;">
+        "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu merasa tenteram kepada-Nya..."
+      </p>
+      <p style="font-size: 0.75rem; font-weight: bold; margin-top: 6px; color: #f3e5ab;">(QS. Ar-Rum: 21)</p>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Mempelai Pria</h2>
+    <div class="info-box">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="profile-photo" alt="Dede">
+      <p style="font-size: 1.1rem; font-weight: bold; color: #f3e5ab; margin-bottom: 2px; font-family: Georgia, serif;">Dede Priatna</p>
+      <p style="font-size: 0.78rem; margin: 0; opacity: 0.9;">Putra tercinta dari<br><strong>Bpk. Dudung & Ibu Dasini</strong></p>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Mempelai Wanita</h2>
+    <div class="info-box">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="profile-photo" alt="Nina">
+      <p style="font-size: 1.1rem; font-weight: bold; color: #f3e5ab; margin-bottom: 2px; font-family: Georgia, serif;">Nina Nurlela</p>
+      <p style="font-size: 0.78rem; margin: 0; opacity: 0.9;">Putri tercinta dari<br><strong>Bpk. Arifin & Ibu Aan Lasmanah</strong></p>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Waktu Acara</h2>
+    <div class="info-box">
+      <p style="color: #f3e5ab; font-weight: bold;">Akad Nikah & Resepsi</p>
+      <p style="margin-top: 5px; font-size: 0.8rem;">📅 Sabtu, 16 Maret 2027<br>⏰ Pukul 08.00 WIB s.d. Selesai</p>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Lokasi Acara</h2>
+    <div class="info-box">
+      <p style="color: #f3e5ab; font-weight: bold;">📍 Sidamulih</p>
+      <p style="font-size: 0.8rem;">Kec. Pamarican, Kabupaten Ciamis, Jawa Barat</p>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Peta Lokasi</h2>
+    <div class="info-box">
+      <p style="font-size: 0.8rem; margin-bottom: 8px;">Tekan tombol di bawah untuk membuka petunjuk arah via Google Maps.</p>
+      <a href="https://maps.app.goo.gl/qW5EhMve3rAjFiGd9?g_st=a" target="_blank" rel="noopener noreferrer" class="btn-action" style="padding:7px 10px;">📍 Buka Google Maps</a>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Menuju Hari Bahagia</h2>
+    <div class="info-box">
+      <p style="font-size: 0.8rem; margin-bottom: 4px;">Menuju 16 Maret 2027:</p>
+      <div class="countdown-grid">
+        <div class="countdown-item">
+          <span id="days" class="countdown-number">00</span>
+          <span class="countdown-label">Hari</span>
+        </div>
+        <div class="countdown-item">
+          <span id="hours" class="countdown-number">00</span>
+          <span class="countdown-label">Jam</span>
+        </div>
+        <div class="countdown-item">
+          <span id="minutes" class="countdown-number">00</span>
+          <span class="countdown-label">Menit</span>
+        </div>
+        <div class="countdown-item">
+          <span id="seconds" class="countdown-number">00</span>
+          <span class="countdown-label">Detik</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Galeri Momen (1)</h2>
+    <div class="info-box" style="padding: 10px;">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="gallery-photo" alt="Galeri Momen">
+      <p style="font-size: 0.75rem; color: #f3e5ab; margin-top: 6px; font-style: italic;">Dede & Nina</p>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Galeri Momen (2)</h2>
+    <div class="info-box" style="padding: 10px;">
+      <img src="https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg" class="gallery-photo" alt="Galeri Momen">
+      <p style="font-size: 0.75rem; color: #f3e5ab; margin-top: 6px; font-style: italic;">Kebersamaan</p>
+    </div>
+  </section>
+
+  <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
+    <h2>Kirim Hadiah</h2>
+    <div class="info-box">
+      <p style="font-size: 0.78rem; margin-bottom: 6px;">Doa restu Anda adalah karunia terindah. Namun jika ingin mengirimkan tanda kasih, silakan melalui:</p>
+      <div class="rek-box">
+        <p style="margin: 2px 0; font-size: 0.75rem; color: #f3e5ab; font-weight: bold;">BCA</p>
+        <p style="margin: 2px 0; font-size: 0.85rem; font-family: monospace;">2031249017</p>
+        <p style="margin: 2px 0; font-size: 0.75rem; opacity: 0.9;">a.n. Dede Priatna</p>
+      </div>
+    </div>
+  </section>
+
   <section style="background-image: url('https://i.postimg.cc/7YwQsgXD/IMG-20260807-WA0041.jpg');">
     <h2>RSVP Kehadiran</h2>
     <div class="rsvp-form">
@@ -377,22 +800,15 @@
         musicBtn.classList.remove('spin');
         musicBtn.innerHTML = "🎵";
       } else {
-        music.play().catch(e => console.log(e));
-        musicBtn.classList.add('spin');
-        musicBtn.innerHTML = "⏸";
-      }
-      isPlaying = !isPlaying;
-    }
-
-    document.body.addEventListener('click', () => {
-      if (!isPlaying) {
         music.play().then(() => {
           musicBtn.classList.add('spin');
           musicBtn.innerHTML = "⏸";
-          isPlaying = true;
-        }).catch(err => console.log(err));
+        }).catch(err => {
+          alert("Gagal memutar audio: " + err.message);
+        });
       }
-    }, { once: true });
+      isPlaying = !isPlaying;
+    }
 
     function kirimWhatsApp() {
       const nama = document.getElementById('nama-rsvp').value;
@@ -410,7 +826,6 @@
       window.open(url, '_blank');
     }
 
-    // Hitung Mundur dengan Detik (Target: 24 Oktober 2026 08:00:00)
     const weddingDate = new Date("march 16, 2027 08:00:00").getTime();
     
     setInterval(() => {
@@ -427,11 +842,6 @@
         document.getElementById("hours").innerHTML = hours;
         document.getElementById("minutes").innerHTML = minutes;
         document.getElementById("seconds").innerHTML = seconds;
-      } else {
-        document.getElementById("days").innerHTML = "0";
-        document.getElementById("hours").innerHTML = "0";
-        document.getElementById("minutes").innerHTML = "0";
-        document.getElementById("seconds").innerHTML = "0";
       }
     }, 1000);
 
@@ -452,4 +862,4 @@
   </script>
 
 </body>
-  </html>
+</html>
